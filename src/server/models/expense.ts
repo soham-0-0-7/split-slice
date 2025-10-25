@@ -9,7 +9,6 @@ export interface IExpense extends Document {
   createdOn: Date;
   description?: string;
   groupId: number;
-  category?: "food" | "travel" | "gifts";
 }
 
 const ExpenseSchema = new Schema<IExpense>({
@@ -19,11 +18,6 @@ const ExpenseSchema = new Schema<IExpense>({
   createdOn: { type: Date, default: () => new Date() },
   description: { type: String },
   groupId: { type: Number, required: true, index: true },
-  category: {
-    type: String,
-    enum: ["food", "travel", "gifts"],
-    required: false,
-  },
 });
 
 ExpenseSchema.pre<IExpense>("save", async function (next) {

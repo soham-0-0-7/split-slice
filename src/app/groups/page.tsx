@@ -52,26 +52,28 @@ export default function GroupsPage() {
 
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-white">
-      <div className="max-w-7xl mx-auto px-12 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-10 md:py-16">
         {/* Header */}
-        <div className="mb-20">
+        <div className="mb-12 md:mb-20">
           <button
             onClick={() => router.push("/dashboard")}
-            className="text-sm text-gray-500 hover:text-white mb-8 flex items-center transition-all duration-300 tracking-wide uppercase"
+            className="text-sm text-gray-500 hover:text-white mb-6 md:mb-8 flex items-center transition-all duration-300 tracking-wide uppercase"
           >
             <span className="mr-2">←</span> Back to Dashboard
           </button>
 
-          <div className="flex items-end justify-between border-b border-gray-800 pb-6">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 border-b border-gray-800 pb-6">
             <div>
-              <h1 className="text-7xl font-bold tracking-tight mb-2">GROUPS</h1>
+              <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-2">
+                GROUPS
+              </h1>
               <div className="h-1 w-24 bg-white"></div>
             </div>
 
             <div className="flex gap-4">
               <button
                 onClick={() => router.push("/groups/createGroup")}
-                className="px-8 py-3 bg-white text-black font-semibold tracking-wide uppercase text-sm hover:bg-gray-200 transition-all duration-300 transform hover:scale-105"
+                className="px-6 md:px-8 py-3 bg-white text-black font-semibold tracking-wide uppercase text-sm hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 self-start"
               >
                 Create Group
               </button>
@@ -116,22 +118,22 @@ export default function GroupsPage() {
                     onClick={() => router.push(`/groups/${g.groupid}`)}
                     onMouseEnter={() => setHoveredId(g.groupid)}
                     onMouseLeave={() => setHoveredId(null)}
-                    className="group relative border-b border-gray-800 py-8 px-6 cursor-pointer transition-all duration-300 hover:bg-[#111111]"
+                    className="group relative border-b border-gray-800 py-6 md:py-8 px-4 sm:px-6 cursor-pointer transition-all duration-300 hover:bg-[#111111]"
                     style={{
                       animation: `fadeIn 0.5s ease-out ${idx * 0.1}s both`,
                     }}
                   >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-6">
-                        <div className="w-14 h-14 border-2 border-white flex items-center justify-center text-white text-xl font-bold transition-all duration-300 group-hover:bg-white group-hover:text-black">
+                    <div className="flex items-center justify-between gap-4">
+                      <div className="flex items-center gap-4 sm:gap-6 min-w-0">
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 border-2 border-white flex items-center justify-center text-white text-lg sm:text-xl font-bold transition-all duration-300 group-hover:bg-white group-hover:text-black shrink-0">
                           {g.groupname.charAt(0).toUpperCase()}
                         </div>
 
-                        <div>
-                          <span className="text-2xl font-bold tracking-tight">
+                        <div className="min-w-0">
+                          <span className="text-xl sm:text-2xl font-bold tracking-tight truncate block">
                             {g.groupname}
                           </span>
-                          <div className="flex items-center gap-4 mt-1">
+                          <div className="flex items-center gap-3 sm:gap-4 mt-1 flex-wrap">
                             <span className="text-xs text-gray-500 uppercase tracking-widest font-semibold px-3 py-1 border border-gray-700">
                               {g.isOwner ? "Owner" : g.isMember ? "Member" : ""}
                             </span>
@@ -148,7 +150,7 @@ export default function GroupsPage() {
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-3 sm:gap-4">
                         {g.isOwner && (
                           <button
                             onClick={async (ev) => {
@@ -184,7 +186,7 @@ export default function GroupsPage() {
                                 alert(e?.message || String(e));
                               }
                             }}
-                            className="px-4 py-2 text-xs border border-white text-white uppercase tracking-widest font-semibold hover:bg-white hover:text-black transition-all duration-300"
+                            className="px-3 sm:px-4 py-2 text-xs border border-white text-white uppercase tracking-widest font-semibold hover:bg-white hover:text-black transition-all duration-300"
                           >
                             Delete
                           </button>

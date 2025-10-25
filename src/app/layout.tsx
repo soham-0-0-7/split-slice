@@ -29,7 +29,7 @@ export default function RootLayout({
       <body
         // suppress hydration warnings at the top-level to reduce noisy console messages in development
         {...({ suppressHydrationWarning: true } as any)}
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-w-0`}
       >
         <UserProvider>
           {!hideHeader && <Header />}

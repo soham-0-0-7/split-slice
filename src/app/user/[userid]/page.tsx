@@ -168,17 +168,17 @@ export default function UserProfilePage({
 
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-white">
-      <div className="max-w-6xl mx-auto px-12 py-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 md:px-12 py-8 md:py-16">
         {/* Header Section */}
-        <div className="mb-16 border-b border-gray-800 pb-12">
-          <div className="flex items-start justify-between">
+        <div className="mb-10 md:mb-16 border-b border-gray-800 pb-8 md:pb-12">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 md:gap-0">
             <div>
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-20 h-20 border-2 border-white flex items-center justify-center text-3xl font-bold">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 border-2 border-white flex items-center justify-center text-2xl sm:text-3xl font-bold">
                   {profile.username.charAt(0).toUpperCase()}
                 </div>
                 <div>
-                  <h1 className="text-5xl font-bold tracking-tight mb-2">
+                  <h1 className="text-3xl sm:text-5xl font-bold tracking-tight mb-2">
                     {profile.username.toUpperCase()}
                   </h1>
                   <div className="text-xs text-gray-600 tracking-widest uppercase">
@@ -186,39 +186,39 @@ export default function UserProfilePage({
                   </div>
                 </div>
               </div>
-              <div className="h-1 w-24 bg-white"></div>
+              <div className="h-1 w-20 sm:w-24 bg-white"></div>
             </div>
 
-            <div className="text-right">
-              <div className="mb-6">
+            <div className="flex flex-col items-end gap-4 w-full md:w-auto">
+              <div className="mb-0 md:mb-6 w-full md:w-auto">
                 {netTotal === 0 ? (
-                  <div className="text-gray-500 text-sm tracking-wide uppercase">
+                  <div className="text-gray-500 text-sm tracking-wide uppercase text-right">
                     All Settled
                   </div>
                 ) : netTotal > 0 ? (
-                  <div>
+                  <div className="text-right">
                     <div className="text-xs text-gray-500 tracking-widest uppercase mb-1">
                       Owes You
                     </div>
-                    <div className="text-3xl font-bold text-green-400">
+                    <div className="text-2xl sm:text-3xl font-bold text-green-400">
                       ₹{netTotal}
                     </div>
                   </div>
                 ) : (
-                  <div>
+                  <div className="text-right">
                     <div className="text-xs text-gray-500 tracking-widest uppercase mb-1">
                       You Owe
                     </div>
-                    <div className="text-3xl font-bold text-red-400">
+                    <div className="text-2xl sm:text-3xl font-bold text-red-400">
                       ₹{Math.abs(netTotal)}
                     </div>
                   </div>
                 )}
               </div>
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
                 {isFriend ? (
                   <button
-                    className="px-6 py-2 border border-gray-700 text-gray-600 text-sm uppercase tracking-widest font-semibold cursor-not-allowed"
+                    className="px-6 py-2 border border-gray-700 text-gray-600 text-sm uppercase tracking-widest font-semibold cursor-not-allowed w-full sm:w-auto"
                     disabled
                   >
                     Friend
@@ -226,14 +226,14 @@ export default function UserProfilePage({
                 ) : (
                   <button
                     onClick={sendReq}
-                    className="px-6 py-2 bg-white text-black text-sm uppercase tracking-widest font-semibold hover:bg-gray-200 transition-all duration-300"
+                    className="px-6 py-2 bg-white text-black text-sm uppercase tracking-widest font-semibold hover:bg-gray-200 transition-all duration-300 w-full sm:w-auto"
                   >
                     Send Request
                   </button>
                 )}
                 <button
                   onClick={settleAll}
-                  className="px-6 py-2 border border-white text-white text-sm uppercase tracking-widest font-semibold hover:bg-white hover:text-black transition-all duration-300"
+                  className="px-6 py-2 border border-white text-white text-sm uppercase tracking-widest font-semibold hover:bg-white hover:text-black transition-all duration-300 w-full sm:w-auto"
                 >
                   Settle All
                 </button>

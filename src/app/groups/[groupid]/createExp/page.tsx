@@ -18,9 +18,7 @@ export default function CreateExpensePage({
   >([]);
   const [amount, setAmount] = useState<string>("");
   const [description, setDescription] = useState<string>("");
-  const [category, setCategory] = useState<"food" | "travel" | "gifts" | "">(
-    ""
-  ); // Add category state
+  // category feature removed
   const [paidBy, setPaidBy] = useState<string>("");
 
   const [selected, setSelected] = useState<Record<string, boolean>>({});
@@ -158,7 +156,7 @@ export default function CreateExpensePage({
           groupId,
           amount: amt,
           description,
-          category: category || undefined, // Add category
+          // category removed
           paidByUsername: paidBy,
           shares,
         }),
@@ -191,7 +189,7 @@ export default function CreateExpensePage({
     <main className="min-h-screen bg-[#0a0a0a] text-white">
       {/* Header */}
       <div className="border-b border-gray-800">
-        <div className="max-w-6xl mx-auto px-8 py-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-6">
           <button
             onClick={() => router.push(`/groups/${groupId}`)}
             className="text-gray-500 hover:text-gray-300 transition-colors duration-200 text-sm tracking-wider mb-6 inline-flex items-center gap-2"
@@ -201,7 +199,7 @@ export default function CreateExpensePage({
 
           <div className="flex items-end justify-between">
             <div>
-              <h1 className="text-5xl font-light tracking-tight mb-2">
+              <h1 className="text-4xl sm:text-5xl font-light tracking-tight mb-2">
                 ADD EXPENSE
               </h1>
               <div className="h-1 w-20 bg-white"></div>
@@ -211,7 +209,7 @@ export default function CreateExpensePage({
       </div>
 
       {/* Content */}
-      <div className="max-w-6xl mx-auto px-8 py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-10 md:py-12">
         <div className="border border-gray-800 bg-[#111111]">
           <div className="p-8 space-y-8">
             {/* Amount */}
@@ -241,50 +239,7 @@ export default function CreateExpensePage({
             </div>
 
             {/* Category */}
-            <div>
-              <label className="block text-xs tracking-widest text-gray-500 mb-3">
-                CATEGORY (OPTIONAL)
-              </label>
-              <div className="grid grid-cols-3 gap-4">
-                <button
-                  type="button"
-                  onClick={() => setCategory(category === "food" ? "" : "food")}
-                  className={`px-6 py-3 text-sm uppercase tracking-wider transition-all duration-300 border ${
-                    category === "food"
-                      ? "bg-white text-black border-white"
-                      : "bg-transparent text-gray-400 border-gray-800 hover:border-white hover:text-white"
-                  }`}
-                >
-                  🍔 Food
-                </button>
-                <button
-                  type="button"
-                  onClick={() =>
-                    setCategory(category === "travel" ? "" : "travel")
-                  }
-                  className={`px-6 py-3 text-sm uppercase tracking-wider transition-all duration-300 border ${
-                    category === "travel"
-                      ? "bg-white text-black border-white"
-                      : "bg-transparent text-gray-400 border-gray-800 hover:border-white hover:text-white"
-                  }`}
-                >
-                  ✈️ Travel
-                </button>
-                <button
-                  type="button"
-                  onClick={() =>
-                    setCategory(category === "gifts" ? "" : "gifts")
-                  }
-                  className={`px-6 py-3 text-sm uppercase tracking-wider transition-all duration-300 border ${
-                    category === "gifts"
-                      ? "bg-white text-black border-white"
-                      : "bg-transparent text-gray-400 border-gray-800 hover:border-white hover:text-white"
-                  }`}
-                >
-                  🎁 Gifts
-                </button>
-              </div>
-            </div>
+            {/* Category removed */}
 
             {/* Paid By */}
             <div>
@@ -410,7 +365,7 @@ export default function CreateExpensePage({
           </div>
 
           {/* Action Buttons */}
-          <div className="border-t border-gray-800 p-6 flex gap-4">
+          <div className="border-t border-gray-800 p-6 flex flex-col sm:flex-row gap-3 sm:gap-4">
             <button
               onClick={() => router.push(`/groups/${groupId}`)}
               disabled={loading}

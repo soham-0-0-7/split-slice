@@ -282,8 +282,8 @@ export default function GroupDetailsPage({
     <main className="min-h-screen bg-[#0a0a0a] text-white">
       {/* Header */}
       <div className="border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-8 py-8">
-          <div className="flex items-start justify-between gap-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-8">
+          <div className="flex flex-col lg:flex-row items-start justify-between gap-8">
             {/* Left: Group Info */}
             <div className="flex-1">
               <button
@@ -293,7 +293,7 @@ export default function GroupDetailsPage({
                 ← BACK TO DASHBOARD
               </button>
 
-              <h1 className="text-5xl font-light tracking-tight mb-2">
+              <h1 className="text-4xl sm:text-5xl font-light tracking-tight mb-2 break-words">
                 {groupName.toUpperCase()}
               </h1>
               <div className="h-1 w-20 bg-white mb-6"></div>
@@ -307,7 +307,6 @@ export default function GroupDetailsPage({
                   <span className="text-gray-400">{totalMembers ?? "-"}</span>
                 </div>
               </div>
-
               <div className="mt-6 pt-6 border-t border-gray-800 grid grid-cols-2 gap-6">
                 <div>
                   <div className="text-xs text-gray-600 tracking-widest mb-1">
@@ -329,7 +328,7 @@ export default function GroupDetailsPage({
             </div>
 
             {/* Right: Settlements & Actions */}
-            <div className="w-96 space-y-4">
+            <div className="w-full lg:w-96 space-y-4">
               <div className="flex items-center justify-between">
                 <div className="text-xs tracking-widest text-gray-500">
                   QUICK ACTIONS
@@ -427,8 +426,8 @@ export default function GroupDetailsPage({
       </div>
 
       {/* Tabs */}
-      <div className="max-w-7xl mx-auto px-8 py-8">
-        <div className="flex gap-8 border-b border-gray-800 mb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-8">
+        <div className="flex flex-wrap gap-4 sm:gap-8 border-b border-gray-800 mb-8">
           <button
             className={`pb-4 text-sm tracking-widest transition-all duration-300 ${
               tab === "expenses"

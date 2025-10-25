@@ -129,10 +129,10 @@ export default function FriendsPage() {
             <span>BACK TO DASHBOARD</span>
           </button>
 
-          <div className="flex items-end justify-between border-b-2 border-neutral-800 pb-8">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 border-b-2 border-neutral-800 pb-8">
             <div className="space-y-3">
               <div className="overflow-hidden">
-                <h1 className="text-6xl font-bold text-white tracking-tighter animate-slide-up">
+                <h1 className="text-4xl sm:text-6xl font-bold text-white tracking-tighter animate-slide-up">
                   FRIENDS
                 </h1>
               </div>
@@ -140,19 +140,19 @@ export default function FriendsPage() {
             </div>
 
             <div
-              className="flex gap-4 opacity-0 animate-fade-in"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 opacity-0 animate-fade-in w-full sm:w-auto"
               style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
             >
               <button
                 onClick={() => router.push("/friends/requests")}
-                className="group relative px-6 py-3 text-sm font-semibold tracking-wider text-white border-2 border-white overflow-hidden transition-all duration-300 hover:text-black"
+                className="group relative px-6 py-3 text-sm font-semibold tracking-wider text-white border-2 border-white overflow-hidden transition-all duration-300 hover:text-black w-full sm:w-auto"
               >
                 <span className="relative z-10">REQUESTS</span>
                 <div className="absolute inset-0 bg-white transform -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
               </button>
               <button
                 onClick={sendFriendRequest}
-                className="relative px-6 py-3 text-sm font-semibold tracking-wider text-black bg-white overflow-hidden transition-all duration-300 hover:shadow-2xl group"
+                className="relative px-6 py-3 text-sm font-semibold tracking-wider text-black bg-white overflow-hidden transition-all duration-300 hover:shadow-2xl group w-full sm:w-auto"
               >
                 <span className="relative z-10">ADD FRIEND</span>
                 <div className="absolute inset-0 bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>

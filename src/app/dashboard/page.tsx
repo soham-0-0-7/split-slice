@@ -52,13 +52,13 @@ export default function DashboardPage() {
         ></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-8 py-16">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-10 md:py-16">
         {/* Header */}
         <div className="mb-32">
           <div className="flex items-start justify-between mb-8">
             <div className="space-y-3">
               <div className="overflow-hidden">
-                <h1 className="text-7xl font-bold text-white tracking-tighter animate-slide-up">
+                <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white tracking-tighter animate-slide-up">
                   DASHBOARD
                 </h1>
               </div>
@@ -89,7 +89,7 @@ export default function DashboardPage() {
           {/* Friends Section */}
           <button
             onClick={() => router.push("/friends")}
-            className="group relative border-t-2 border-l-2 border-neutral-800 p-20 text-left overflow-hidden transition-all duration-500 hover:bg-white hover:border-white"
+            className="group relative border-t-2 border-l-2 border-neutral-800 p-8 sm:p-12 md:p-20 text-left overflow-hidden transition-all duration-500 hover:bg-white hover:border-white"
           >
             <div className="relative z-10">
               <div className="mb-12">
@@ -111,7 +111,7 @@ export default function DashboardPage() {
               </div>
 
               <div className="space-y-4">
-                <h2 className="text-4xl font-bold text-white group-hover:text-black tracking-tight transition-colors duration-500">
+                <h2 className="text-3xl sm:text-4xl font-bold text-white group-hover:text-black tracking-tight transition-colors duration-500">
                   FRIENDS
                 </h2>
                 <div className="h-px w-24 bg-white group-hover:bg-black transition-colors duration-500"></div>
@@ -128,7 +128,7 @@ export default function DashboardPage() {
           {/* Groups Section */}
           <button
             onClick={() => router.push("/groups")}
-            className="group relative border-t-2 border-l-2 border-r-2 border-neutral-800 p-20 text-left overflow-hidden transition-all duration-500 hover:bg-white hover:border-white"
+            className="group relative border-t-2 border-l-2 border-r-2 border-neutral-800 p-8 sm:p-12 md:p-20 text-left overflow-hidden transition-all duration-500 hover:bg-white hover:border-white"
           >
             <div className="relative z-10">
               <div className="mb-12">
@@ -150,7 +150,7 @@ export default function DashboardPage() {
               </div>
 
               <div className="space-y-4">
-                <h2 className="text-4xl font-bold text-white group-hover:text-black tracking-tight transition-colors duration-500">
+                <h2 className="text-3xl sm:text-4xl font-bold text-white group-hover:text-black tracking-tight transition-colors duration-500">
                   GROUPS
                 </h2>
                 <div className="h-px w-24 bg-white group-hover:bg-black transition-colors duration-500"></div>

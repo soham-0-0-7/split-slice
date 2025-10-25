@@ -8,15 +8,13 @@ import { computeOptimizedSettlements } from "@/server/utils/settlement";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { groupId, amount, description, category, paidByUsername, shares } =
-      body as {
-        groupId?: number;
-        amount?: number;
-        description?: string;
-        category?: "food" | "travel" | "gifts";
-        paidByUsername?: string;
-        shares?: Array<{ username: string; amount: number }>;
-      };
+    const { groupId, amount, description, paidByUsername, shares } = body as {
+      groupId?: number;
+      amount?: number;
+      description?: string;
+      paidByUsername?: string;
+      shares?: Array<{ username: string; amount: number }>;
+    };
 
     if (
       groupId === undefined ||
@@ -35,16 +33,6 @@ export async function POST(req: Request) {
     if (typeof amount === "number" && amount < 0) {
       return new Response(
         JSON.stringify({ error: "Amount cannot be negative" }),
-        { status: 400 }
-      );
-    }
-
-    // Validate category if provided
-    if (category && !["food", "travel", "gifts"].includes(category)) {
-      return new Response(
-        JSON.stringify({
-          error: "Invalid category. Must be: food, travel, or gifts",
-        }),
         { status: 400 }
       );
     }
@@ -70,16 +58,10 @@ export async function POST(req: Request) {
       amount,
       description,
       groupId: gid,
-      category: category || undefined,
     });
     await expense.save();
 
-    console.log(
-      "✅ Expense saved with groupId:",
-      gid,
-      "and category:",
-      category || "none"
-    );
+    console.log("✅ Expense saved with groupId:", gid);
 
     // Sequentially save borrowings (guaranteed to persist groupId)
     const newBorrowings: Array<{
