@@ -245,4 +245,7 @@ Project layout (selected):
 
 ---
 
+## Recordings
+- https://drive.google.com/drive/folders/1OGSW2bYh5AZa9q2PlLc-Cc4b45I7_9LR?usp=sharing
+
 © 2025 Split Slice. Built with Next.js and MongoDB.
